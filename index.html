@@ -12,16 +12,17 @@
             background-image: linear-gradient(rgba(28, 37, 38, 0.75), rgba(28, 37, 38, 0.85)), 
                               url('https://i.imgur.com/ybAor2v.jpeg');
             background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            min-height: 100vh;
+            background-position: center center;
+            background-repeat: no-repeat;
+            min-height: 100vh;           /* Better mobile support */
+            height: 100dvh;              /* Modern mobile viewport fix */
         }
-        .project-card {
-            transition: all 0.3s ease;
-        }
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+        
+        /* Extra safety for iOS Safari */
+        @supports (-webkit-touch-callout: none) {
+            .hero-bg {
+                background-attachment: scroll;
+            }
         }
     </style>
 </head>
